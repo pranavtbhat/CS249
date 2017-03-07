@@ -1,3 +1,15 @@
+# Install Metis
+wget http://glaros.dtc.umn.edu/gkhome/fetch/sw/metis/metis-5.1.0.tar.gz
+tar -xvzf metis-5.1.0.tar.gz
+rm metis-5.1.0.tar.gz
+cd metis-5.1.0
+make
+make install
+make config shared=1
+
+cd ..
+
+
 # Directory stuff
 rm -rf dataset
 mkdir dataset

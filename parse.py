@@ -46,7 +46,6 @@ kv_dict = {}
 propnames = []
 propvalues = []
 
-
 print "Extracting vertex data"
 for ego_user in tqdm(ego_users[0:3]):
 
