@@ -108,6 +108,5 @@ with open(join('dataset', 'gplus_combined.txt')) as edata:
         u, v = line.rstrip().split(' ')
         u = v_dict[int(u)]
         v = v_dict[int(v)]
-        print u, v
         G.add_edge(u, v)
 
