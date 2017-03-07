@@ -3,7 +3,7 @@ from os import listdir
 from os.path import isfile, join
 import networkx as nx
 from tqdm import tqdm
-import sys
+# import sys
 
 # First get a list of valid ego users
 GPLUS_DIR = "dataset/gplus/"
@@ -38,16 +38,17 @@ def encode_k(d, k):
         encode_k_count += 1
         return encode_k_count - 1
 
+# Encodings
+k_dict ={}
+kv_dict = {}
+
+# Parse the featnames
+propnames = []
+propvalues = []
+
 
 print "Extracting vertex data"
-for ego_user in tqdm(ego_users[0:1]):
-    # Encodings
-    k_dict ={}
-    kv_dict = {}
-
-    # Parse the featnames
-    propnames = []
-    propvalues = []
+for ego_user in tqdm(ego_users[0:3]):
 
     with open(join(GPLUS_DIR, ego_user + '.featnames'), 'r') as fnf:
         for line in fnf:
@@ -89,7 +90,6 @@ for ego_user in tqdm(ego_users[0:1]):
                 val = encode_kv(kv_dict, (propnames[i], propvalues[i]))
                 G[int(vertex)][prop] = val
 
-sys.exit(0)
 print "Extracting edge data"
 with open(join('dataset', 'gplus_combined.txt')) as edata:
     for line in tqdm(edata):
