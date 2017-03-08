@@ -117,6 +117,8 @@ edge_cuts, parts = metis.part_graph(G, 10)
 indices = pd.DataFrame({'indices' : parts}).groupby(by='indices').groups
 
 for i, part in indices.iteritems():
+    print "Subgraphing in ", i
     graph = nx.DiGraph(G.subgraph(list(part)))
+    print "Writing in ", i
     nx.write_gpickle(graph, "Graph{}.gpickle".format(i))
 
