@@ -120,5 +120,5 @@ for i, part in indices.iteritems():
     print "Subgraphing in ", i
     graph = nx.DiGraph(G.subgraph(list(part)))
     print "Writing in ", i
-    nx.write_gpickle(graph, "Graph{}.gpickle".format(i))
+    nx.write_gexf(graph, "Graph{}.gexf".format(i))
 
