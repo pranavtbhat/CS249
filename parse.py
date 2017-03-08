@@ -58,7 +58,7 @@ propnames = []
 propvalues = []
 
 print "Extracting vertex data"
-for ego_user in tqdm(ego_users[0:3]):
+for ego_user in tqdm(ego_users):
 
     with open(join(GPLUS_DIR, ego_user + '.featnames'), 'r') as fnf:
         for line in fnf:
