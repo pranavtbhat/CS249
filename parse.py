@@ -3,7 +3,8 @@ from os import listdir
 from os.path import isfile, join
 import networkx as nx
 from tqdm import tqdm
-# import sys
+import metis
+import pandas as pd
 
 # First get a list of valid ego users
 GPLUS_DIR = "dataset/gplus/"
@@ -102,11 +103,20 @@ for ego_user in tqdm(ego_users):
                 val = encode_kv(kv_dict, (propnames[i], propvalues[i]))
                 G.node[v][prop] = val
 
-print "Extracting edge data"
-with open(join('dataset', 'gplus_combined.txt')) as edata:
-    for line in tqdm(edata):
-        u, v = line.rstrip().split(' ')
-        u = encode_vertex(v_dict, int(u))
-        v = encode_vertex(v_dict, int(v))
-        G.add_edge(u, v)
+# print "Extracting edge data"
+# with open(join('dataset', 'gplus_combined.txt')) as edata:
+#     for line in tqdm(edata):
+#         u, v = line.rstrip().split(' ')
+#         u = encode_vertex(v_dict, int(u))
+#         v = encode_vertex(v_dict, int(v))
+#         G.add_edge(u, v)
+
+
+edge_cuts, parts = metis.part_graph(G, 10)
+
+indices = pd.DataFrame({'indices' : parts}).groupby(by='indices').groups
+
+for i, part in indices.iteritems():
+    graph = nx.DiGraph(G.subgraph(list(part)))
+    nx.write_gpickle(graph, "Graph{}.gpickle".format(i))
 
