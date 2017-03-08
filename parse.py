@@ -103,13 +103,13 @@ for ego_user in tqdm(ego_users):
                 val = encode_kv(kv_dict, (propnames[i], propvalues[i]))
                 G.node[v][prop] = val
 
-# print "Extracting edge data"
-# with open(join('dataset', 'gplus_combined.txt')) as edata:
-#     for line in tqdm(edata):
-#         u, v = line.rstrip().split(' ')
-#         u = encode_vertex(v_dict, int(u))
-#         v = encode_vertex(v_dict, int(v))
-#         G.add_edge(u, v)
+print "Extracting edge data"
+with open(join('dataset', 'gplus_combined.txt')) as edata:
+    for line in tqdm(edata):
+        u, v = line.rstrip().split(' ')
+        u = encode_vertex(v_dict, int(u))
+        v = encode_vertex(v_dict, int(v))
+        G.add_edge(u, v)
 
 
 edge_cuts, parts = metis.part_graph(G, 10)
