@@ -27,7 +27,7 @@ data = pd.read_csv(
 print data.shape
 
 for i,vertex in tqdm(enumerate(data.vertex_id.values)):
-    v = encode_vertex(vertex_dict, i)
+    v = encode_vertex(vertex_dict, vertex)
     data.set_value(i, 'vertex_id', v)
 
     G.add_node(v)
