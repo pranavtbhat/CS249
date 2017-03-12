@@ -31,7 +31,7 @@ for i,vertex in tqdm(enumerate(data.vertex_id.values)):
     data.set_value(i, 'vertex_id', v)
 
     G.add_node(v)
-    row = data.iloc[i]
+    row = data.iloc[i][1:]
     for key, value in enumerate(row):
         G.node[v][key] = value
 
@@ -41,10 +41,11 @@ print "Extracting edge data"
 with open(join('dataset', 'gplus_combined.txt')) as edata:
     for line in edata:
         u, v = line.rstrip().split(' ')
-        u = encode_vertex(vertex_dict, int(u))
-        v = encode_vertex(vertex_dict, int(v))
+        u = encode_vertex(vertex_dict, u)
+        v = encode_vertex(vertex_dict, v)
         G.add_edge(u, v)
 
+print "Partitioning Graph"
 edge_cuts, parts = metis.part_graph(G, 10)
 indices = pd.DataFrame({'indices' : parts}).groupby(by='indices').groups
 
