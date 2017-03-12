@@ -23,9 +23,9 @@ def replace(s, d):
             else:
                 labels.append(int(word))
 
-        return np.sort(np.unique(labels)).tolist()
+        return "".join([str(i) for i in np.sort(np.unique(labels)).tolist()])
     else:
-        return labels
+        return ''
 ##
 # Institution
 # Mappings:
@@ -67,7 +67,7 @@ invalid_institutions = map(lambda x : x[0], sorted(invalid.items(), key = lambda
 # 10. Invalid - 350
 ##
 invalid = {}
-university_mappings = {"MidWest" : 1, "East" : 2, "West" : 3, "Australia" : 50, "Canada" : 100, "MiddleEast" : 150, "Europe" : 200, "Asia" : 250, "SouthAmerica" : 300, "Invalid" : 350}
+university_mappings = {"MidWest" : 1, "East" : 2, "West" : 3, "Australia" : 4, "Canada" : 5, "MiddleEast" : 6, "Europe" : 7, "Asia" : 8, "SouthAmerica" : 9, "Invalid" : ''}
 university_value_mappings = {}
 
 with open('labelling/university', "r") as f:
@@ -88,7 +88,7 @@ invalid_universities = map(lambda x : x[0], sorted(invalid.items(), key = lambda
 # Place
 ##
 invalid = {}
-place_mappings = {"us_east" : 1, "us_mid" : 2, "us_west" : 3, "canada" : 50, "australia" : 100, "middle_east" : 150, "south_america" : 200, "africa" : 250, "asia" : 300, "europe" : 350}
+place_mappings = {"us_east" : 0, "us_mid" : 1, "us_west" : 2, "canada" : 3, "australia" : 4, "middle_east" : 5, "south_america" : 6, "africa" : 7, "asia" : 8, "europe" : 9}
 place_value_mappings = {}
 
 for key, value in place_mappings.iteritems():

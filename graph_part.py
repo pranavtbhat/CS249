@@ -19,7 +19,11 @@ def encode_vertex(d, v):
 
 
 print "Adding vertices and vertex data"
-data = pd.read_csv('processed_vertex_data.tsv', delimiter="\t")
+data = pd.read_csv(
+    'processed_vertex_data.tsv',
+    dtype= {'vertex_id' : str, 'gender' : str, 'university' : str, 'place' : str, 'institution' : str, 'job_title' : str},
+    delimiter = "\t"
+)
 print data.shape
 
 for i,vertex in tqdm(enumerate(data.vertex_id.values)):

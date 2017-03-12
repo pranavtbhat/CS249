@@ -42,7 +42,10 @@ with open("vertex_data.tsv", "w") as out:
             arr = np.fromfile(efeat, sep=' ', dtype=int)
             indexes, = np.nonzero(arr)
             for i in indexes:
-                ego_props[propnames[i]] += "|" +  propvalues[i]
+                if propnames[i] in ['gender', 'last_name', 'job_title']:
+                    ego_props[propnames[i]] += " " + propvalues[i]
+                else:
+                    ego_props[propnames[i]] += "|" +  propvalues[i]
 
         out.write(str(ego_user) + "\t")
         out.write("\t".join([str(val) for val in ego_props.values()]))
@@ -62,7 +65,10 @@ with open("vertex_data.tsv", "w") as out:
                 v_props = {'gender':"", 'university':"", 'place':"", 'last_name':"", 'job_title':"", 'institution':""}
 
                 for i in indexes:
-                    v_props[propnames[i]] += "|" + propvalues[i]
+                    if propnames[i] in ['gender', 'last_name', 'job_title']:
+                        v_props[propnames[i]] += " " + propvalues[i]
+                    else:
+                        v_props[propnames[i]] += "|" + propvalues[i]
 
                 out.write(str(vertex) + "\t")
                 out.write("\t".join([str(val) for val in v_props.values()]))
