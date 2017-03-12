@@ -1,0 +1,93 @@
+Abu Dhabi
+Bangalore
+Bangalore, India
+Bangkok
+Bangkok, Thailand
+Bangladesh
+Beijing
+Beijing, China
+Beirut, Lebanon
+Calcutta
+Cebu, Philippines
+Chennai, India
+China
+Delhi
+Dubai
+Dubai, UAE
+Earth
+Esfahan
+Goa
+Hong Kong
+Hyderabad
+Hyderabad, India
+India
+Indonesia
+Indore
+Iran
+Ireland
+Israel
+Istanbul
+Istanbul, Turkey
+Jaipur
+Jakarta
+Jakarta, Indonesia
+Japan
+Jerusalem, Israel
+Karachi
+Karlsruhe
+Kiev
+Kiev, Ukraine
+Kolkata
+Kota
+Kuala Lumpur
+Kuwait
+Lebanon
+Lucknow
+Manila
+Manila, Philippines
+Mhow
+Moscow
+Moscow, Russia
+Mumbai
+Mumbai, India
+Mysore
+New Delhi
+New Delhi, India
+Nicosia
+Osaka
+Oshawa
+Penang, Malaysia
+Philippines
+Pune
+Pune, India
+Rio de Janeiro
+Seoul
+Seoul, Korea
+Shanghai
+Shanghai, China
+Singapore
+Singapore, Singapore
+Surabaya
+Taipei, Taiwan
+Tehran
+Tehran, Iran
+Tel Aviv
+Tel Aviv, Israel
+Thailand
+Tokyo
+Tokyo, Japan
+Vietnam
+Yokohama
+bangalore
+hong kong
+istanbul
+tokyo
+non-ascii_1013
+non-ascii_1365
+non-ascii_1491
+non-ascii_1499
+non-ascii_1584
+non-ascii_1646
+non-ascii_1647
+non-ascii_1702
+non-ascii_971

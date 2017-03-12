@@ -1,0 +1,111 @@
+Amsterdam
+Amsterdam, Netherlands
+Amsterdam, The Netherlands
+Barcelona
+Barcelona, Spain
+Berlin
+Berlin, Germany
+Bratislava
+Brighton
+Bristol
+Brussels
+Bucharest
+Budapest, Hungary
+Cambridge, England
+Cambridge, UK
+Cardiff
+Cologne
+Copenhagen
+Copenhagen, Denmark
+Coventry
+Dublin
+Dublin, Ireland
+Edinburgh
+Edinburgh, Scotland
+England
+Europe
+Florence
+Florence, Italy
+France
+Frankfurt
+Frankfurt am Main
+Frankfurt, Germany
+Freiburg
+Geneva
+Geneva, Switzerland
+Germany
+Glasgow
+Glasgow, UK
+Granada
+Granada, Spain
+Guildford
+Hamburg
+Helsinki
+Helsinki, Finland
+Husum, Germany
+Kouvola
+Krakow, Poland
+Lausanne, Switzerland
+Leeds
+Leuven
+Liverpool
+London
+London, England
+London, Ontario
+London, UK
+Lund, Sweden
+Luxembourg
+Madrid
+Madrid, Spain
+Mainz
+Malaga
+Manchester
+Manchester, UK
+Mannheim
+Mannheim, Germany
+Metz
+Milano
+Minsk, Belarus
+Munich
+Munich, Germany
+Naples, Italy
+Nottingham
+Oslo
+Oslo, Norway
+Oxford
+Oxford, UK
+Palmerston North
+Paris
+Paris, France
+Pori
+Prague
+Prague, Czech Republic
+Regensburg
+Rome
+Rome, Italy
+Rotterdam
+Rotterdam, The Netherlands
+Salzburg
+Scotland
+Sevilla, Spain
+Sheffield
+Southampton
+Strasbourg
+Stuttgart
+Stuttgart, Germany
+Switzerland
+The Hague, The Netherlands
+UK
+United Kingdom
+Uppsala
+Utrecht
+Venice
+Vienna
+Vienna, Austria
+Warsaw
+Warsaw, Poland
+Zurich
+Zurich, Switzerland
+barcelona
+london
+london, uk
