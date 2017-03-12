@@ -11,13 +11,11 @@ data = data.where((pd.notnull(data)), None)
 # Substitutions
 ###
 
-invalid = {}
-
 def replace(s, d):
     global invalid
     labels = []
     if s != None:
-        for key, value in institution_value_mappings.iteritems():
+        for key, value in d.iteritems():
             s = s.replace(key, str(value))
         for word in s.split('|'):
             if not word.isdigit():
@@ -27,7 +25,7 @@ def replace(s, d):
 
         return np.sort(np.unique(labels)).tolist()
     else:
-        return None
+        return labels
 ##
 # Institution
 # Mappings:
@@ -40,6 +38,7 @@ def replace(s, d):
 # 7. Government - 7
 # 8. Invalid - 8
 ##
+invalid = {}
 institution_mappings = {"Entertainment" : 1, "Tech" : 2, "Business" : 3, "Finance" : 4, "Education" : 5, "Retail" : 6, "Government" : 7, "Invalid" : ''}
 institution_value_mappings = {}
 
@@ -51,7 +50,7 @@ with open('labelling/institiution', "r") as f:
         institution_value_mappings[key] = institution_mappings[value]
 
 data['institution'] = map(lambda x : replace(x, institution_value_mappings), data['institution'])
-
+invalid_institutions = map(lambda x : x[0], sorted(invalid.items(), key = lambda x : x[1], reverse=True))
 
 ##
 # University
@@ -67,23 +66,29 @@ data['institution'] = map(lambda x : replace(x, institution_value_mappings), dat
 # 9. SouthAmerica - 300
 # 10. Invalid - 350
 ##
+invalid = {}
 university_mappings = {"MidWest" : 1, "East" : 2, "West" : 3, "Australia" : 50, "Canada" : 100, "MiddleEast" : 150, "Europe" : 200, "Asia" : 250, "SouthAmerica" : 300, "Invalid" : 350}
 university_value_mappings = {}
 
 with open('labelling/university', "r") as f:
     for line in f:
-        key, value = line.rstrip().split('<>')
+        try:
+            key, value = line.rstrip().split('<>')
+        except:
+            print line
+            break
         key = key.lstrip().rstrip()
         value = value.lstrip().rstrip()
         university_value_mappings[key] = university_mappings[value]
 
 data['university'] = map(lambda x: replace(x, university_value_mappings), data['university'])
-
+invalid_universities = map(lambda x : x[0], sorted(invalid.items(), key = lambda x : x[1], reverse=True))
 
 ##
 # Place
 ##
-place_mappings = {"us_east" : 1, "us_mid" : 2, "us_west" : 3, "canada" : 50, "australia" : 100, "middle_east" : 150, "south_america" : 200, "africa" : 250, "asia" : 300}
+invalid = {}
+place_mappings = {"us_east" : 1, "us_mid" : 2, "us_west" : 3, "canada" : 50, "australia" : 100, "middle_east" : 150, "south_america" : 200, "africa" : 250, "asia" : 300, "europe" : 350}
 place_value_mappings = {}
 
 for key, value in place_mappings.iteritems():
@@ -93,3 +98,7 @@ for key, value in place_mappings.iteritems():
             place_value_mappings[line] = value
 
 data['place'] = map(lambda x: replace(x, place_value_mappings), data['place'])
+invalid_places = map(lambda x : x[0], sorted(invalid.items(), key = lambda x : x[1], reverse=True))
+
+# Write to file
+data.to_csv('processed_vertex_data.tsv', sep = '\t')

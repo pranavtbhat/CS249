@@ -62,3 +62,4 @@ McAllen
 Oklahoma City, OK
 Omaha, Nebraska
 Urbana, IL
+Columbus, OH

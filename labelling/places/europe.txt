@@ -109,3 +109,30 @@ Zurich, Switzerland
 barcelona
 london
 london, uk
+Hamburg
+Barcelona
+London, UK
+Budapest, Hungary
+London
+Dublin
+Scotland
+Geneva, Switzerland
+Prague
+Amsterdam, The Netherlands
+Manchester, UK
+Munich, Germany
+Milano
+Netherlands
+Venice
+Bucharest
+Minsk, Belarus
+Copenhagen, Denmark
+Nottingham
+Zurich
+Dresden
+barcelona
+Italy
+Czech Republic
+Spain
+Russia
+Ukraine
