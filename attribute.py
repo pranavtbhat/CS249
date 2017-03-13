@@ -101,6 +101,13 @@ def make_nx_matrix(g, alg = nx.resource_allocation_index):
 
     return M
 
+def compute_ranks(M, edges):
+    V,_ = M.shape
+    num_zero = V * V - np.count_nonzero(M)
+    non_zeros_vals = sorted(M[M.nonzero()])
+
+    return [np.searchsorted(non_zeros_vals, M[u,v]) + num_zero for (u,v) in edges]
+
 
 if __name__ == "__main__":
     ###
