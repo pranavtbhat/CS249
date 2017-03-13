@@ -24,6 +24,7 @@ data = pd.read_csv(
     dtype= {'vertex_id' : str, 'gender' : str, 'university' : str, 'place' : str, 'institution' : str, 'job_title' : str},
     delimiter = "\t"
 )
+data = data.where((pd.notnull(data)), None)
 print data.shape
 
 for i,vertex in tqdm(enumerate(data.vertex_id.values)):
