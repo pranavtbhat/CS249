@@ -1,6 +1,6 @@
 import networkx as nx
 import pandas as pd
-# from os.path import join
+from os.path import join
 import metis
 from tqdm import tqdm
 
@@ -40,13 +40,13 @@ for i,vertex in tqdm(enumerate(data.vertex_id.values)):
 
 data.to_csv('vertex_data_encoded.tsv', sep='\t')
 
-# print "Extracting edge data"
-# with open(join('dataset', 'gplus_combined.txt')) as edata:
-#     for line in edata:
-#         u, v = line.rstrip().split(' ')
-#         u = encode_vertex(vertex_dict, u)
-#         v = encode_vertex(vertex_dict, v)
-#         G.add_edge(u, v)
+print "Extracting edge data"
+with open(join('dataset', 'gplus_combined.txt')) as edata:
+    for line in edata:
+        u, v = line.rstrip().split(' ')
+        u = encode_vertex(vertex_dict, u)
+        v = encode_vertex(vertex_dict, v)
+        G.add_edge(u, v)
 
 print "Partitioning Graph"
 edge_cuts, parts = metis.part_graph(G, 10)
