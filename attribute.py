@@ -82,7 +82,7 @@ def make_sim_matrix(g, weights=[0, 0, 1, 1, 1, 1, 0]):
 
     similarity_job_title, similarity_last_name = mine_text_fields(g)
 
-    for (u,v) in tqdm(itertools.combindations(g.nodes(), 2), total=(V * (V-1))/2):
+    for (u,v) in tqdm(itertools.combinations(g.nodes(), 2), total=(V * (V-1))/2):
         sim = attribute_similarity(g, u, v, similarity_job_title, similarity_last_name, weights)
         M[u,v] = sim
         M[v,u] = sim
@@ -94,7 +94,7 @@ def make_nx_matrix(g, alg = nx.resource_allocation_index):
     V = g.number_of_nodes()
     M = np.zeros((V, V))
 
-    for e in tqdm(itertools.combindations(g.nodes(), 2), total=(V * (V-1))/2):
+    for e in tqdm(itertools.combinations(g.nodes(), 2), total=(V * (V-1))/2):
         sim = alg(g, e)
         M[u,v] = sim
         M[v,u] = sim
