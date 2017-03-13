@@ -55,6 +55,8 @@ indices = pd.DataFrame({'indices' : parts}).groupby(by='indices').groups
 for i, part in indices.iteritems():
     print "Subgraphing in ", i
     graph = nx.Graph(G.subgraph(list(part)))
+    graph = nx.convert_node_labels_to_integers(graph, first_label=1)
+
     print "Writing in ", i
-    nx.write_gexf(graph, "Graph{}.gexf".format(i))
+    nx.write_gexf(graph, "dataset/processed/Graph{}.gexf".format(i))
 
