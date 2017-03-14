@@ -4,6 +4,7 @@ import numpy as np
 import random
 import itertools
 from tqdm import tqdm
+from bisect import bisect_left
 
 def mine_text_fields(g):
     # Extract text_fields from vertices
@@ -93,20 +94,16 @@ def make_sim_matrix(g, weights=[0, 0, 1, 1, 1, 1, 0]):
 def make_nx_matrix(g, alg = nx.resource_allocation_index):
     V = g.number_of_nodes()
     M = np.zeros((V, V))
-
-    for e in tqdm(itertools.combinations(g.nodes(), 2), total=(V * (V-1))/2):
-        sim = alg(g, e)
-        M[u,v] = sim
-        M[v,u] = sim
-
+    for (u,v,w) in tqdm(alg(g, itertools.combinations(g.nodes(), 2), total=(V * (V-1))/2)):
+        M[u,v] = w
+        M[v,u] = w
     return M
 
 def compute_ranks(M, edges):
     V,_ = M.shape
-    num_zero = V * V - np.count_nonzero(M)
-    non_zeros_vals = sorted(M[M.nonzero()])
-
-    return [np.searchsorted(non_zeros_vals, M[u,v]) + num_zero for (u,v) in edges]
+    num_non_zero = np.count_nonzero(M)
+    non_zeros_vals = sorted(M[M.nonzero()], reverse=True)
+    return [bisect_left(non_zeros_vals, M[u,v]) if M[u,v] > 0 else num_non_zero for (u,v) in tqdm(edges)]
 
 
 if __name__ == "__main__":
