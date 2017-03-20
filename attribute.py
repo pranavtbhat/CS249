@@ -94,7 +94,8 @@ def make_sim_matrix(g, weights=[0, 0, 1, 1, 1, 1, 0]):
 def make_nx_matrix(g, alg = nx.resource_allocation_index):
     V = g.number_of_nodes()
     M = np.zeros((V, V))
-    for (u,v,w) in tqdm(alg(g, itertools.combinations(g.nodes(), 2), total=(V * (V-1))/2)):
+    num_total = V * (V - 1)/2
+    for (u,v,w) in tqdm(alg(g, itertools.combinations(g.nodes(), 2)), total=num_total):
         M[u,v] = w
         M[v,u] = w
     return M
