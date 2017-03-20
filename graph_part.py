@@ -9,6 +9,7 @@ vertex_dict = {}
 
 vertex_count = 0
 def encode_vertex(d, v):
+    # Generate a unique integer label for each vertex
     global vertex_count
     if v in d:
         return d[v]
@@ -26,6 +27,7 @@ data = pd.read_csv(
 )
 
 
+# Replace NaNs with ''
 data = data.where((pd.notnull(data)), '')
 print data.shape
 
